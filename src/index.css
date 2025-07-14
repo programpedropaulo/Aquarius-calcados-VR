@@ -5,17 +5,20 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   width: 100vw;
   height: 100%;
   font-family: sans-serif;
   overflow-x: hidden;
-  background-image: url('./assets/imagens pagina principal/fundo-amadeirado.jpg.png');
+  background-image: url("./assets/imagens pagina principal/fundo-amadeirado.jpg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -33,7 +36,6 @@ html, body, #root {
   z-index: 10;
   border-radius: 0 0 8px 8px; /* opcional: cantos arredondados na parte de baixo */
 }
-
 
 /* CONTAINER INTERNO */
 .header-content {
@@ -65,12 +67,26 @@ html, body, #root {
   transition: color 0.3s;
 }
 
+.menu li {
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
 .menu li:hover {
   color: #2a1705;
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /* DIVISOR REAL COM ALTURA IGUAL À LOGO */
 .divisor-linha {
+  width: 2px;
+  height: 50px; /* exatamente igual à logo */
+  background-color: #c4b89b;
+  opacity: 0.6;
+}
+
+/* DIVISOR REAL COM ALTURA IGUAL À LOGO */
+.divisor-linha-perfil {
   width: 2px;
   height: 50px; /* exatamente igual à logo */
   background-color: #c4b89b;
@@ -87,7 +103,7 @@ html, body, #root {
 .header-icons {
   display: flex;
   gap: 25px;
-  align-items: flex-start; /* cola no topo da faixa */
+  align-items: center; /* deixa os icones no centro */
   margin-left: auto; /* empurra para o canto direito */
   padding-top: 7px; /* ajuste fino da posição */
 }
@@ -100,9 +116,17 @@ html, body, #root {
   transition: transform 0.2s, opacity 0.2s;
 }
 
+/* Estilo exclusivo para o perfil */
+.header-icons .perfil_do_usuario {
+  height: 24px; /* ligeiramente maior */
+  border-radius: 50%; /* se for foto de perfil redonda */
+  object-fit: cover; /* caso seja uma imagem real */
+}
+
 .header-icons img:hover {
   opacity: 1;
   transform: scale(1.1);
 }
 
-h2 {}
+h2 {
+}

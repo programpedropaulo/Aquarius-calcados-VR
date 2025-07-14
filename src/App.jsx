@@ -3,8 +3,8 @@ import logo from "./assets/imagens pagina principal/logo_aquarius-removebg-previ
 import { useState } from "react";
 import lupaIcon from "./assets/imagens pagina principal/lupa_menu-removebg-preview.png";
 import sacolaIcon from "./assets/imagens pagina principal/sacola_menu-removebg-preview.png";
-import engrenagemIcon from "./assets/imagens pagina principal/engrenagem_menu-removebg-preview.png";
-import menuIcon from "./assets/imagens pagina principal/tracinho_menu-removebg-preview.png";
+import perfilIcon from "./assets/imagens pagina principal/icone_perfil-removebg-preview.png";
+import chatIcon from "./assets/imagens pagina principal/icone_de_chat-removebg-preview.png";
 
 function App() {
   const [pagina, setPagina] = useState("home");
@@ -29,6 +29,9 @@ function App() {
               <li>
                 <div className="divisor-linha" />
               </li>
+              <li onClick={() => setPagina("Novidades")}>Novidades</li>
+
+              <li onClick={() => setPagina("Promoções")}>Promoções</li>
 
               <li onClick={() => setPagina("Masculino")}>Masculino</li>
 
@@ -38,17 +41,16 @@ function App() {
 
           <div className="header-icons">
             <img src={lupaIcon} alt="Buscar" />
+            <img src={chatIcon} alt="Chat com vendendor" />
             <img src={sacolaIcon} alt="Sacola" />
-            <img src={engrenagemIcon} alt="Configurações" />
-            <img src={menuIcon} alt="Menu" />
+            <div className="divisor-linha-perfil" />
+            <img src={perfilIcon} alt="Perfil" className=" perfil_do_usuario" />
           </div>
         </div>
       </header>
 
       <main className="conteudo">{renderConteudo()}</main>
     </>
-
-    
   );
 }
 
