@@ -34,7 +34,9 @@ body,
   background-color: #f5f5dc;
   border-bottom: 2px solid #e0d6b3;
   z-index: 10;
-  border-radius: 0 0 8px 8px; /* opcional: cantos arredondados na parte de baixo */
+  
+  
+
 }
 
 /* CONTAINER INTERNO */
