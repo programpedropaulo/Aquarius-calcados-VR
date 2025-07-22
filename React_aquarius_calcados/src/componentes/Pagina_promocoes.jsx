@@ -1,7 +1,7 @@
 function Pagina_promocoes(props) {
   return (
     <div>
-      <h1>{props.titulo}</h1>
+      <h1>promaocao</h1>
       {/* conteúdo da página promocoes aqui */}
     </div>
   );

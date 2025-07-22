@@ -1,8 +1,8 @@
 function Pagina_masculina(props) {
   return (
-    <div>
-      <h1>{props.titulo}</h1>
-      {/* conteúdo da página masculina aqui */}
+    <div className="carrossel-fullscreen">
+      <h1>Masculina</h1>
+      {/* Aqui você vai colocar seu carrossel depois */}
     </div>
   );
 }

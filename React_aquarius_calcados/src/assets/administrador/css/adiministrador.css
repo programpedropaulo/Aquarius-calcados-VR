@@ -130,13 +130,5 @@ body,
   transform: scale(1.1);
 }
 
-
-.carrossel-fullscreen {
-  width: 100%;
-  height: 100%; /* vai ocupar todo espaço do main */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #111; /* só pra visualização */
-  color: white;
+h2 {
 }

@@ -1,19 +1,17 @@
 import "./App.css";
 import { useState } from "react";
 
-//Importação de Componentes Carrossel
-import Administrador from "./componentes/Administrador";
-import Login from "./componentes/Login";
+
 import Pagina_novidades from "./componentes/Pagina_novidades";
 import Pagina_promocoes from "./componentes/Pagina_promocoes";
 import Pagina_masculina from "./componentes/Pagina_masculina";
 import Pagina_feminina from "./componentes/Pagina_feminina";
-import Pesquisa from "./componentes/buscar"
-import Chat_vendendor from "./componentes/chat_com_vendedor"
-import Sacola from "./componentes/sacola"
-import Perfil from "./componentes/perfil"
+import Pesquisa from "./componentes/buscar";
+import Chat_vendendor from "./componentes/chat_com_vendedor";
+import Sacola from "./componentes/sacola";
+import Perfil from "./componentes/perfil";
 
-// Importção de imagens
+// Importação de Imagens
 import logo from "./assets/imagens pagina principal/logo_aquarius-removebg-preview.png";
 import lupaIcon from "./assets/imagens pagina principal/lupa_menu-removebg-preview.png";
 import sacolaIcon from "./assets/imagens pagina principal/sacola_menu-removebg-preview.png";
@@ -22,6 +20,12 @@ import chatIcon from "./assets/imagens pagina principal/icone_de_chat-removebg-p
 
 function App() {
   const [pagina, setPagina] = useState("home");
+
+  // Estados para janelas flutuantes
+  const [mostrarPerfil, setMostrarPerfil] = useState(false);
+  const [mostrarChat, setMostrarChat] = useState(false);
+  const [mostrarPesquisa, setMostrarPesquisa] = useState(false);
+  const [mostrarSacola, setMostrarSacola] = useState(false);
 
   const renderConteudo = () => {
     switch (pagina) {
@@ -33,12 +37,8 @@ function App() {
         return <Pagina_masculina />;
       case "Feminino":
         return <Pagina_feminina />;
-      case "Administrador":
-        return <Administrador />;
-      case "Login":
-        return <Login />;
     }
-};
+  };
 
   return (
     <>
@@ -52,11 +52,8 @@ function App() {
                 <div className="divisor-linha" />
               </li>
               <li onClick={() => setPagina("Novidades")}>Novidades</li>
-
               <li onClick={() => setPagina("Promoções")}>Promoções</li>
-
               <li onClick={() => setPagina("Masculino")}>Masculino</li>
-
               <li onClick={() => setPagina("Feminino")}>Feminino</li>
             </ul>
           </nav>
@@ -65,35 +62,56 @@ function App() {
             <img
               src={lupaIcon}
               alt="Buscar"
-              onClick={() => setPagina("Pesquisa")}
+              onClick={() => setMostrarPesquisa(!mostrarPesquisa)}
               style={{ cursor: "pointer" }}
             />
-
             <img
               src={chatIcon}
               alt="Chat com vendedor"
-              onClick={() => setPagina("Chat")}
+              onClick={() => setMostrarChat(!mostrarChat)}
               style={{ cursor: "pointer" }}
             />
-
             <img
               src={sacolaIcon}
               alt="Sacola"
-              onClick={() => setPagina("Sacola")}
+              onClick={() => setMostrarSacola(!mostrarSacola)}
               style={{ cursor: "pointer" }}
             />
-
             <div className="divisor-linha-perfil" />
-
             <img
               src={perfilIcon}
               alt="Perfil"
               className="perfil_do_usuario"
-              onClick={() => setPagina("Perfil")}
+              onClick={() => setMostrarPerfil(!mostrarPerfil)}
               style={{ cursor: "pointer" }}
             />
           </div>
         </div>
+
+        {/* Janelinhas Flutuantes */}
+        {mostrarPesquisa && (
+          <div className="janela-flutuante">
+            <Pesquisa />
+          </div>
+        )}
+
+        {mostrarChat && (
+          <div className="janela-flutuante">
+            <Chat_vendendor />
+          </div>
+        )}
+
+        {mostrarSacola && (
+          <div className="janela-flutuante">
+            <Sacola />
+          </div>
+        )}
+
+        {mostrarPerfil && (
+          <div className="janela-flutuante">
+            <Perfil />
+          </div>
+        )}
       </header>
 
       <main className="conteudo">{renderConteudo()}</main>
@@ -102,6 +120,3 @@ function App() {
 }
 
 export default App;
-
-
-//Pesquisar sobre AJAX php

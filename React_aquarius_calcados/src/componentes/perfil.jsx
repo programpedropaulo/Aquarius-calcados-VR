@@ -1,3 +1,5 @@
+import "../assets/perfil/css/perfil.css";
+
 function Perfil() {
   return (
     <div>

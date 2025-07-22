@@ -1,8 +1,8 @@
 function Pagina_novidades(props) {
   return (
     <div>
-      <h1>{props.titulo}</h1>
-      {/* conteúdo da página novidades aqui */}
+      <h1>novidades</h1>
+     
     </div>
   );
 }
