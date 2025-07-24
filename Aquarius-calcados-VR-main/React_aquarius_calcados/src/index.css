@@ -1,0 +1,134 @@
+/* RESET GERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html,
+body,
+#root {
+  width: 100vw;
+  height: 100%;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  background-image: url("./assets/imagens pagina principal/fundo-amadeirado.jpg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* FAIXA BEGE NO TOPO */
+.top-bar {
+  width: 100vw;
+  position: fixed;
+  top: 15px; /* << DESCENDO o header! */
+  left: 0;
+  background-color: #f5f5dc;
+  border-bottom: 2px solid #e0d6b3;
+  z-index: 10;
+  
+  
+
+}
+
+/* CONTAINER INTERNO */
+.header-content {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+  gap: 35px;
+  width: 100%;
+}
+
+/* LOGO */
+.logo_aquarius {
+  height: 50px;
+}
+
+/* MENU */
+.menu ul {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  align-items: center;
+}
+
+.menu li {
+  font-size: 18px;
+  font-weight: bold;
+  color: #5e4730;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menu li {
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.menu li:hover {
+  color: #2a1705;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* DIVISOR REAL COM ALTURA IGUAL À LOGO */
+.divisor-linha {
+  width: 2px;
+  height: 50px; /* exatamente igual à logo */
+  background-color: #c4b89b;
+  opacity: 0.6;
+}
+
+/* DIVISOR REAL COM ALTURA IGUAL À LOGO */
+.divisor-linha-perfil {
+  width: 2px;
+  height: 50px; /* exatamente igual à logo */
+  background-color: #c4b89b;
+  opacity: 0.6;
+}
+
+/* CONTEÚDO CENTRAL */
+.conteudo {
+  padding: 100px 40px 40px;
+  color: #e6d8b6;
+  text-align: center;
+}
+
+.header-icons {
+  display: flex;
+  gap: 25px;
+  align-items: center; /* deixa os icones no centro */
+  margin-left: auto; /* empurra para o canto direito */
+  padding-top: 7px; /* ajuste fino da posição */
+}
+
+.header-icons img {
+  height: 24px;
+  width: auto;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Estilo exclusivo para o perfil */
+.header-icons .perfil_do_usuario {
+  height: 24px; /* ligeiramente maior */
+  border-radius: 50%; /* se for foto de perfil redonda */
+  object-fit: cover; /* caso seja uma imagem real */
+}
+
+.header-icons img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+h2 {
+}
