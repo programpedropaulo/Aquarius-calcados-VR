@@ -1,5 +1,6 @@
 import "@/App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Menu escrito
 import Pagina_novidades from "@/componentes/menu_escrito_pagina_principal/Pagina_novidades";
@@ -26,6 +27,15 @@ function App() {
   const [mostrarChat, setMostrarChat] = useState(false);
   const [mostrarPesquisa, setMostrarPesquisa] = useState(false);
   const [mostrarSacola, setMostrarSacola] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!location.pathname.startsWith("/Aquarius-calcados-VR")) {
+      navigate("/Aquarius-calcados-VR/login");
+    }
+  }, []);
 
   const renderConteudo = () => {
     switch (pagina) {
@@ -59,36 +69,15 @@ function App() {
           </nav>
 
           <div className="header-icons">
-            <img
-              src={lupaIcon}
-              alt="Buscar"
-              onClick={() => setMostrarPesquisa(!mostrarPesquisa)}
-              style={{ cursor: "pointer" }}
-            />
-            <img
-              src={chatIcon}
-              alt="Chat com vendedor"
-              onClick={() => setMostrarChat(!mostrarChat)}
-              style={{ cursor: "pointer" }}
-            />
-            <img
-              src={sacolaIcon}
-              alt="Sacola"
-              onClick={() => setMostrarSacola(!mostrarSacola)}
-              style={{ cursor: "pointer" }}
-            />
+            <img src={lupaIcon} alt="Buscar" onClick={() => setMostrarPesquisa(!mostrarPesquisa)} style={{ cursor: "pointer" }} />
+            <img src={chatIcon} alt="Chat com vendedor" onClick={() => setMostrarChat(!mostrarChat)} style={{ cursor: "pointer" }} />
+            <img src={sacolaIcon} alt="Sacola" onClick={() => setMostrarSacola(!mostrarSacola)} style={{ cursor: "pointer" }} />
             <div className="divisor-linha-perfil" />
-            <img
-              src={perfilIcon}
-              alt="Perfil"
-              className="perfil_do_usuario"
-              onClick={() => setMostrarPerfil(!mostrarPerfil)}
-              style={{ cursor: "pointer" }}
-            />
+            <img src={perfilIcon} alt="Perfil" className="perfil_do_usuario" onClick={() => setMostrarPerfil(!mostrarPerfil)} style={{ cursor: "pointer" }} />
           </div>
         </div>
 
-        {/* Janelas diretas (sem animações) */}
+        {/* Janelas diretas */}
         {mostrarPesquisa && <Pesquisa />}
         {mostrarChat && <Chat_vendendor />}
         {mostrarSacola && <Sacola />}
