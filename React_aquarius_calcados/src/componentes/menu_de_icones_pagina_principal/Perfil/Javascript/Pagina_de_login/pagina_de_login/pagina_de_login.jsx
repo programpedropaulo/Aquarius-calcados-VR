@@ -24,7 +24,7 @@ function Pagina_de_login() {
   };
 
   if (logado) {
-    return <Pagina_do_adiministrador />;
+    return <Pagina_do_administrador />;
   }
 
   return (
