@@ -2,37 +2,35 @@
   position: relative;
 }
 
-.perfil-icon {
-  cursor: pointer;
-  font-size: 24px;
-  user-select: none;
-  padding: 10px;
-}
-
 .perfil-menu {
   position: absolute;
-  top: 50px;
+  top: 2px;
   right: 0;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #fdf5e6; /* tom creme */
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(80, 40, 20, 0.3); /* sombra quente */
   padding: 10px 0;
-  width: 180px;
+  width: 200px;
   z-index: 100;
-  transition: all 0.3s ease-in-out;
+  border: 1px solid #d3bfa3;
+  transition: transform 0.2s ease-in-out, opacity 0.2s;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .perfil-menu button {
-  background-color: #f8f8f8;
+  background-color: transparent;
   border: none;
   width: 100%;
   padding: 12px 20px;
   text-align: left;
   font-size: 16px;
-  color: #333;
+  font-weight: 500;
+  color: #5a3e2b;
   cursor: pointer;
-  border-bottom: 1px solid #e0e0e0;
-  transition: background 0.2s;
+  border-bottom: 1px solid #e3d6c4;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: 'Georgia', serif;
 }
 
 .perfil-menu button:last-child {
@@ -40,5 +38,7 @@
 }
 
 .perfil-menu button:hover {
-  background-color: #ececec;
+  background-color: #f2e3cd;
+  color: #3b2617;
 }
+

@@ -88,27 +88,11 @@ function App() {
           </div>
         </div>
 
-        {/* Janelas Flutuantes */}
-        {mostrarPesquisa && (
-          <div className="janela-flutuante">
-            <Pesquisa />
-          </div>
-        )}
-        {mostrarChat && (
-          <div className="janela-flutuante">
-            <Chat_vendendor />
-          </div>
-        )}
-        {mostrarSacola && (
-          <div className="janela-flutuante">
-            <Sacola />
-          </div>
-        )}
-        {mostrarPerfil && (
-          <div className="janela-flutuante">
-            <Perfil />
-          </div>
-        )}
+        {/* Janelas diretas (sem animações) */}
+        {mostrarPesquisa && <Pesquisa />}
+        {mostrarChat && <Chat_vendendor />}
+        {mostrarSacola && <Sacola />}
+        {mostrarPerfil && <Perfil />}
       </header>
 
       <main className="conteudo">
