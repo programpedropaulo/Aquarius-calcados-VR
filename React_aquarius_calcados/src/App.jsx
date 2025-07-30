@@ -1,5 +1,5 @@
 import "@/App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // Menu escrito
@@ -69,15 +69,15 @@ function App() {
           </nav>
 
           <div className="header-icons">
-            <img src={lupaIcon} alt="Buscar" onClick={() => setMostrarPesquisa(!mostrarPesquisa)} style={{ cursor: "pointer" }} />
-            <img src={chatIcon} alt="Chat com vendedor" onClick={() => setMostrarChat(!mostrarChat)} style={{ cursor: "pointer" }} />
-            <img src={sacolaIcon} alt="Sacola" onClick={() => setMostrarSacola(!mostrarSacola)} style={{ cursor: "pointer" }} />
+            <img src={lupaIcon} alt="Buscar" onClick={() => setMostrarPesquisa(prev => !prev)} style={{ cursor: "pointer" }} />
+            <img src={chatIcon} alt="Chat com vendedor" onClick={() => setMostrarChat(prev => !prev)} style={{ cursor: "pointer" }} />
+            <img src={sacolaIcon} alt="Sacola" onClick={() => setMostrarSacola(prev => !prev)} style={{ cursor: "pointer" }} />
             <div className="divisor-linha-perfil" />
-            <img src={perfilIcon} alt="Perfil" className="perfil_do_usuario" onClick={() => setMostrarPerfil(!mostrarPerfil)} style={{ cursor: "pointer" }} />
+            <img src={perfilIcon} alt="Perfil" className="perfil_do_usuario" onClick={() => setMostrarPerfil(prev => !prev)} style={{ cursor: "pointer" }} />
           </div>
         </div>
 
-        {/* Janelas diretas */}
+        {/* Janelas flutuantes independentes */}
         {mostrarPesquisa && <Pesquisa />}
         {mostrarChat && <Chat_vendendor />}
         {mostrarSacola && <Sacola />}

@@ -1,5 +1,7 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
-// import css
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+// Importando apenas o CSS corretamente
 import "@/assets/menu_de_icones_pagina_principal/menu_perfil/assets_menu_perfil/css/perfil.css";
 
 // Subpáginas do perfil
@@ -12,17 +14,26 @@ import Pagina_de_configuracoes from "./Javascript/Pagina_de_configuracoes/pagina
 
 export default function Perfil() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [mostrarMenu, setMostrarMenu] = useState(true);
+
+  // Sempre mostra o menu ao trocar de rota (opcional)
+  useEffect(() => {
+    setMostrarMenu(true);
+  }, [location.pathname]);
 
   return (
     <div className="perfil-container">
-      <div className="perfil-menu">
-        <button onClick={() => navigate("compras")}>Compras</button>
-        <button onClick={() => navigate("favoritos")}>Favoritos</button>
-        <button onClick={() => navigate("ajuda")}>Ajuda</button>
-        <button onClick={() => navigate("login")}>Login</button>
-        <button onClick={() => navigate("sobre-nos")}>Sobre nós</button>
-        <button onClick={() => navigate("configuracoes")}>Configurações</button>
-      </div>
+      {mostrarMenu && (
+        <div className="perfil-menu">
+          <button onClick={() => navigate("compras")}>🛍️ Compras</button>
+          <button onClick={() => navigate("favoritos")}>❤️ Favoritos</button>
+          <button onClick={() => navigate("ajuda")}>❓ Ajuda</button>
+          <button onClick={() => navigate("login")}>🔐 Login</button>
+          <button onClick={() => navigate("sobre-nos")}>📄 Sobre nós</button>
+          <button onClick={() => navigate("configuracoes")}>⚙️ Configurações</button>
+        </div>
+      )}
 
       <div className="perfil-conteudo">
         <Routes>
