@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 
 // Importando apenas o CSS corretamente
 import "@/assets/menu_de_icones_pagina_principal/menu_perfil/assets_menu_perfil/css/perfil.css";
-import "@/assets/menu_de_icones_pagina_principal/perfil/css/perfil.css";
 
-export default function Perfil({ onClose, zIndex, bringToFront }) {
+// Subcomponente flutuante com nome diferente
+export function PerfilFlutuante({ onClose, zIndex, bringToFront }) {
   return (
     <div
       className="perfil-container"
@@ -33,12 +33,12 @@ import Pagina_de_login from "./Javascript/Pagina_de_login/pagina_de_login/pagina
 import Pagina_sobre_nos from "./Javascript/Pagina_sobre_nos/Pagina_sobre_nos";
 import Pagina_de_configuracoes from "./Javascript/Pagina_de_configuracoes/pagina_de_configuracoes";
 
+// Componente principal de perfil com navegação
 export default function Perfil() {
   const navigate = useNavigate();
   const location = useLocation();
   const [mostrarMenu, setMostrarMenu] = useState(true);
 
-  // Sempre mostra o menu ao trocar de rota (opcional)
   useEffect(() => {
     setMostrarMenu(true);
   }, [location.pathname]);
