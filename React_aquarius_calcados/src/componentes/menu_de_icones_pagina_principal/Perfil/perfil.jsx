@@ -3,6 +3,27 @@ import { useState, useEffect } from "react";
 
 // Importando apenas o CSS corretamente
 import "@/assets/menu_de_icones_pagina_principal/menu_perfil/assets_menu_perfil/css/perfil.css";
+import "@/assets/menu_de_icones_pagina_principal/perfil/css/perfil.css";
+
+export default function Perfil({ onClose, zIndex, bringToFront }) {
+  return (
+    <div
+      className="perfil-container"
+      style={{ zIndex }}
+      onMouseDown={bringToFront}
+    >
+      <div className="perfil-header">
+        <h2>👤 Perfil do Usuário</h2>
+        <button onClick={onClose}>✖</button>
+      </div>
+
+      <div className="perfil-body">
+        <p>Seus dados pessoais aparecerão aqui.</p>
+        {/* Conteúdo extra futuro */}
+      </div>
+    </div>
+  );
+}
 
 // Subpáginas do perfil
 import Pagina_de_compras from "./Javascript/Pagina_de_compras/Pagina_de_compras";

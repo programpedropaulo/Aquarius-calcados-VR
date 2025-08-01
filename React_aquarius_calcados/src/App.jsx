@@ -1,5 +1,5 @@
 import "@/App.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // Menu escrito
@@ -23,10 +23,12 @@ import chatIcon from "@/assets/pagina_principal/Imagens/icone_de_chat-removebg-p
 
 function App() {
   const [pagina, setPagina] = useState("home");
-  const [mostrarPerfil, setMostrarPerfil] = useState(false);
+
+  // Janela ativa (perfil, sacola, pesquisa)
+  const [ativo, setAtivo] = useState(null);
+
+  // Chat fica isolado e só fecha manualmente
   const [mostrarChat, setMostrarChat] = useState(false);
-  const [mostrarPesquisa, setMostrarPesquisa] = useState(false);
-  const [mostrarSacola, setMostrarSacola] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -52,6 +54,10 @@ function App() {
     }
   };
 
+  const toggleAtivo = (nome) => {
+    setAtivo((prev) => (prev === nome ? null : nome));
+  };
+
   return (
     <>
       <header className="top-bar">
@@ -69,19 +75,19 @@ function App() {
           </nav>
 
           <div className="header-icons">
-            <img src={lupaIcon} alt="Buscar" onClick={() => setMostrarPesquisa(prev => !prev)} style={{ cursor: "pointer" }} />
-            <img src={chatIcon} alt="Chat com vendedor" onClick={() => setMostrarChat(prev => !prev)} style={{ cursor: "pointer" }} />
-            <img src={sacolaIcon} alt="Sacola" onClick={() => setMostrarSacola(prev => !prev)} style={{ cursor: "pointer" }} />
+            <img src={lupaIcon} alt="Buscar" onClick={() => toggleAtivo("pesquisa")} style={{ cursor: "pointer" }} />
+            <img src={chatIcon} alt="Chat com vendedor" onClick={() => setMostrarChat(true)} style={{ cursor: "pointer" }} />
+            <img src={sacolaIcon} alt="Sacola" onClick={() => toggleAtivo("sacola")} style={{ cursor: "pointer" }} />
             <div className="divisor-linha-perfil" />
-            <img src={perfilIcon} alt="Perfil" className="perfil_do_usuario" onClick={() => setMostrarPerfil(prev => !prev)} style={{ cursor: "pointer" }} />
+            <img src={perfilIcon} alt="Perfil" className="perfil_do_usuario" onClick={() => toggleAtivo("perfil")} style={{ cursor: "pointer" }} />
           </div>
         </div>
 
-        {/* Janelas flutuantes independentes */}
-        {mostrarPesquisa && <Busca onClose={() => setMostrarPesquisa(false)} />}
-        {mostrarChat && <Chat_vendendor />}
-        {mostrarSacola && <Sacola />}
-        {mostrarPerfil && <Perfil />}
+        {/* Janelas flutuantes (somente uma visível ao mesmo tempo, exceto o chat) */}
+        {ativo === "pesquisa" && <Busca onClose={() => setAtivo(null)} />}
+        {ativo === "sacola" && <Sacola onClose={() => setAtivo(null)} />}
+        {ativo === "perfil" && <Perfil onClose={() => setAtivo(null)} />}
+        {mostrarChat && <Chat_vendendor onClose={() => setMostrarChat(false)} />}
       </header>
 
       <main className="conteudo">

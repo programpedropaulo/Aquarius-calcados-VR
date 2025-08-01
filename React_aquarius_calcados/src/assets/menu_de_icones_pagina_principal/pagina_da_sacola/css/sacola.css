@@ -1,4 +1,3 @@
-
 @keyframes aparecer {
   from {
     opacity: 0;
@@ -8,4 +7,46 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.sacola-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: aparecer 0.3s ease-in-out;
+}
+
+.sacola-botoes {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.sacola-botoes button {
+  padding: 8px 12px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.sacola-botoes button:hover {
+  background-color: #444;
+}
+
+.sacola-botoes button.ativo {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.sacola-conteudo {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  animation: aparecer 0.3s ease-in-out;
 }
