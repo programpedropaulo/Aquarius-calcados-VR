@@ -9,7 +9,7 @@ import Pagina_masculina from "@/componentes/menu_escrito_pagina_principal/Pagina
 import Pagina_feminina from "@/componentes/menu_escrito_pagina_principal/Pagina_feminina";
 
 // Menu de ícones
-import Pesquisa from "@/componentes/menu_de_icones_pagina_principal/Funcao_de_pesquisa/buscar";
+import Busca from "@/componentes/menu_de_icones_pagina_principal/Funcao_de_pesquisa/buscar";
 import Chat_vendendor from "@/componentes/menu_de_icones_pagina_principal/Chat_com_vendedor/chat_com_vendedor";
 import Sacola from "@/componentes/menu_de_icones_pagina_principal/Sacola/sacola";
 import Perfil from "@/componentes/menu_de_icones_pagina_principal/Perfil/perfil";
@@ -78,7 +78,7 @@ function App() {
         </div>
 
         {/* Janelas flutuantes independentes */}
-        {mostrarPesquisa && <Pesquisa />}
+        {mostrarPesquisa && <Busca onClose={() => setMostrarPesquisa(false)} />}
         {mostrarChat && <Chat_vendendor />}
         {mostrarSacola && <Sacola />}
         {mostrarPerfil && <Perfil />}
